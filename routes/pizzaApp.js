@@ -13,6 +13,12 @@ import {
 const router = express.Router();
 
 router
+  .route("/")
+  .get(async (request, response) => {
+    response.send("home page");
+  })
+
+router
   .route("/pizza")
   .get(async (request, response) => {
     const result = await pizzaList();
