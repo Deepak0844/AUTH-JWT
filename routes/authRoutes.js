@@ -2,7 +2,6 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import { genPassword, createUser, getUserByName } from "../helper.js";
 import jwt from "jsonwebtoken";
-import { auth } from "../middleware/auth.js";
 
 const router = express.Router();
 
@@ -56,8 +55,5 @@ router.route("/signin").post(async (request, response) => {
   }
 });
 
-router.get("/protected", auth, (request, response) => {
-  response.send("opened");
-});
 
 export const authRouter = router;
