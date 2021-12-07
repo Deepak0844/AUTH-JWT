@@ -50,7 +50,7 @@ router.route("/signin").post(async (request, response) => {
 
   if (isPasswordMatch) {
     const token = jwt.sign({ id: userFromDB._id }, process.env.SECRET_KEY); //,{expiresIn:"3hours"}
-    response.send({ auth: true, token: token }); //if password match
+    response.send({ token: token }); //if password match
   } else {
     response.status(401).send({ message: "Invalid credentials" }); //if password does not match
   }
