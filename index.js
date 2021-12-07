@@ -22,7 +22,7 @@ const PORT = process.env.PORT
 export const client = await createConnections();
 
 //routes
-app.use("/",pizzaApp);
-app.use("/",authRouter);//middleware
+app.use("/app",pizzaApp);
+app.use("/user",authRouter);//middleware
 
 app.listen(PORT,()=>{ console.log("Server started", PORT) })
