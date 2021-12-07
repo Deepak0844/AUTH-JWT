@@ -1,7 +1,6 @@
 import bcrypt from "bcryptjs";
 import { client } from "./index.js";
-import {ObjectId} from 'mongodb';
-
+import { ObjectId } from "mongodb";
 
 async function genPassword(password) {
   const NO_OF_ROUNDS = 10; //difficulties
@@ -37,29 +36,26 @@ async function cartList() {
   return await client.db("b28wd").collection("cart").find().toArray();
 }
 
-async function getPizzaById(id){
+async function getPizzaById(id) {
   return await client
-  .db("b28wd")
-  .collection("pizza")
-  .findOne({ _id: ObjectId(id)});
+    .db("b28wd")
+    .collection("pizza")
+    .findOne({ _id: ObjectId(id) });
 }
 
-async function deleteItem(id){
+async function deleteItem(id) {
   return await client
-  .db("b28wd")
-  .collection("cart")
-  .deleteOne({ _id: ObjectId(id)});
+    .db("b28wd")
+    .collection("cart")
+    .deleteOne({ _id: ObjectId(id) });
 }
 
-async function checkOut(details){
+async function checkOut(details) {
   return await client.db("b28wd").collection("checkout").insertOne(details);
 }
 
-async function succesful(){
-  return await client
-  .db("b28wd")
-  .collection("checkout")
-  .findOne();
+async function succesful() {
+  return await client.db("b28wd").collection("checkout").findOne();
 }
 export {
   genPassword,
