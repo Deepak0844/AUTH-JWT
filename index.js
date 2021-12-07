@@ -5,11 +5,11 @@ import {MongoClient} from "mongodb";
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT
-dotenv.config();
+
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
