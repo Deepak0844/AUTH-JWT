@@ -3,7 +3,6 @@ import { authRouter} from './routes/authRoutes.js';
 import { pizzaApp} from './routes/pizzaApp.js';
 import {MongoClient} from "mongodb";
 import dotenv from 'dotenv';
-import cookieParser from 'cookie-parser';
 import cors from 'cors';
 dotenv.config();
 
@@ -12,7 +11,6 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(cookieParser());
 const MONGO_URL = process.env.MONGO_URL
 const PORT = process.env.PORT
   async function createConnections(){
