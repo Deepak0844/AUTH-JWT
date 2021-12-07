@@ -8,13 +8,13 @@ import cors from 'cors';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT
+
 
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 const MONGO_URL = process.env.MONGO_URL
-
+const PORT = process.env.PORT
   async function createConnections(){
   const client = new MongoClient(MONGO_URL);
   await client.connect();  //promise
